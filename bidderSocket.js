@@ -25,7 +25,7 @@
     Optional Parameters: Send empty string. Do NOT REMOVE from input array.
 ****/
 var auctionID = '';
-var offer = '{
+var offer = {
                 "id": ["309fc513-362e-446f-b466-dfe95f8ce3cb", "862670df-9e69-4e9b-b416-10246033c818", "9d8fdb64-c1f3-4a6b-a04e-9085d47f66ec", "6f989df1-fb1a-4547-ab73-94d3247b9295", "cbd17951-931c-472f-8ba0-ed39858d2d8f"], //ITEM ID
                 "amount": ["3", "1", "5", "2", "4"], //ITEM AMOUNT
                 "item_delivery_date": ["", "", "", "", ""], //ITEM DELIVERY DATE (ONLY IF THE requestDeliveryDateForItems IS TURNED ON)
@@ -40,7 +40,7 @@ var offer = '{
                 "valid_until": "10-04-2019", //VALID UNTIL DATE (OPTIONAL)
                 "transport_date": "15-04-2019", //TRANSPORT DATE (OPTIONAL)
                 "files": "672bfb15-782a-4172-a49e-1c8a75eb0711" //OFFER FILE (OPTIONAL)
-            }';
+            };
 
 socket.emit('bid', auctionID, offer);
 /****
