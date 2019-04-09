@@ -30,7 +30,7 @@ var Jetract = {
         },
         functions: {
             getNotifications: function(){
-                //Triggers when a notification is passed. For example, a new bid!
+                //Triggers when a notification is passed. For example, a new auction!
                 /*Make a new request to API and get Notifications.
                 Update Warning!
                 Future update will change the behaviour of this function.
@@ -48,12 +48,14 @@ var Jetract = {
     DO NOT CHANGE THIS PART
 ****/
 var socket = null;
-var JetractNodeUrl = 'https://api-test.jetract.com:8443/';
-var userSecretKey = '';
-var companyID = ''; //ONLY Auctioneer
-var userType = ''; //1: Auctioneer - 2: BIDDER
 var JetractWebSocket = {
     socket: null,
+    config: {
+        jetractNodeUrl: 'https://dev.jetract.com:8443/',
+        userSecretKey: '',
+        companyID: '', //ONLY Auctioneer
+        userType: '' //1: Auctioneer - 2: BIDDER
+    },
     connect: function() {
         var self = this;
         if( self.socket ) {
@@ -61,18 +63,18 @@ var JetractWebSocket = {
             delete self.socket;
             self.socket = null;
         }
-        this.socket = io.connect(JetractNodeUrl, {
+        this.socket = io.connect(JetractWebSocket.config.jetractNodeUrl, {
             secure: true,
             verify: false,
             reconnection: true,
             reconnectionDelay: 500,
             reconnectionAttempts: 10,
-            query: "secret="+userSecretKey+"&company="+companyID+"&user_type="+userType
+            query: "secret="+JetractWebSocket.config.userSecretKey+"&company="+JetractWebSocket.config.companyID+"&user_type="+JetractWebSocket.config.userType
         });
         this.socket.on('connect', function () {
             console.log('Connected to Jetract server.');
-            if(userType == '2') 
-               this.emit('load', userSecretKey);
+            if(JetractWebSocket.config.userType == '2')
+                this.emit('load', JetractWebSocket.config.userSecretKey);
         });
         this.socket.on('disconnect', function () {
             console.log('Disconnected from Jetract server.');
@@ -80,11 +82,10 @@ var JetractWebSocket = {
         });
         socket = JetractWebSocket.socket;
         if(typeof socketInit != 'undefined') socketInit();
-        if(typeof auctioneerSocketInit != 'undefined') auctioneerSocketInit();
-        if(typeof bidderSocketInit != 'undefined') bidderSocketInit();
+        if(JetractWebSocket.config.userType == '1' && typeof auctioneerSocketInit != 'undefined') auctioneerSocketInit();
+        if(JetractWebSocket.config.userType == '2' && typeof bidderSocketInit != 'undefined') bidderSocketInit();
     }
 };
-JetractWebSocket.connect();
 
 function socketInit(){
     socket.on('user', function (type, data, task, element) {
@@ -96,7 +97,6 @@ function socketInit(){
         });
     });
 }
-socketInit();
 /****
     DO NOT CHANGE THIS PART END
 ****/
