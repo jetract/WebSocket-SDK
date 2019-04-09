@@ -42,7 +42,7 @@ var offer = {
                 "files": "672bfb15-782a-4172-a49e-1c8a75eb0711" //OFFER FILE (OPTIONAL)
             };
 
-socket.emit('bid', auctionID, offer);
+socket.emit('bid', auctionID, JSON.stringify(offer));
 /****
     END OF EMIT FUNCTION
 ****/
