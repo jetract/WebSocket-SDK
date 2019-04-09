@@ -154,58 +154,58 @@ var Bidder = {
                 //Triggers when an auction is started
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
             },
             auctionEnd: function(){
                 //Triggers when an auction is ended
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
             },
             timeEnded: function(){
                 //Triggers auction time ends.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
             },
             auctionStartStage: function(){
                 //Triggers when auction stage is started (ONLY SEALED BID AUCTION in ROUNDS)
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
             },
             auctionEndStage: function(){
                 //Triggers when auction stage is ended (ONLY SEALED BID AUCTION in ROUNDS)
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
             },
             auctionExtendDuration: function(){
                 //Triggers when auctionner changed the auction duration manually.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
-                Employer.socket.data.task; //DURATION OF EXTEND
+                Bidder.socket.data.data; //AUCTION ID
+                Bidder.socket.data.task; //DURATION OF EXTEND
             },
             auctionEndDateChanged: function(){
                 //Triggers when auctionner changes the end date. (ONLY SEALED BID AUCTION AND RFQ)
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
             },
             bidderSpecificationApprovalReset: function(){
                 //Triggers when auctionner changes terms&conditions. Re-Approval is required.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
-                Employer.socket.data.task; //BIDDER ID
-                Employer.socket.data.element; //COMPANY ID AND NAME AND EMAIL ADDRESS OF JSON OBJECT
+                Bidder.socket.data.data; //AUCTION ID
+                Bidder.socket.data.task; //BIDDER ID
+                Bidder.socket.data.element; //COMPANY ID AND NAME AND EMAIL ADDRESS OF JSON OBJECT
             },
             auctionEndControl: function(){
                 //Triggers when bid couldn't be submitted because auction ended!
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.status; //TRUE
+                Bidder.socket.data.status; //TRUE
             },
             auctionMinimumChangeControl: function(){
                 //Triggers when bid couldn't be submitted because minimumChange rule was active.
@@ -215,26 +215,26 @@ var Bidder = {
                 //Triggers when total bid is equal to 0.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.status; //TRUE
+                Bidder.socket.data.status; //TRUE
             },
             offerTimeControl: function(){
                 //Triggers when a new bid is less than 20 seconds away from last bid.
                 //Note: You can't make a new bid in less than 20 seconds.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.status; //TRUE
+                Bidder.socket.data.status; //TRUE
             },
             auctionbidLimitControl: function(){
                 //Triggers when bid couldn't be submitted because bid limit rule was active.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.status; //TRUE
+                Bidder.socket.data.status; //TRUE
             },
             offerSubmitControl: function(){
                 //Triggers when bid was submitted.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.status;
+                Bidder.socket.data.status;
                 //TRUE: Succesfully submitted bid.
                 //FALSE: Couldn't submit bid.
             },
@@ -242,38 +242,38 @@ var Bidder = {
                 //Triggers when a fatal error occured.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.status;
+                Bidder.socket.data.status;
                 //False: Fatal Error Occured!
             },
             autoTimeExtensionTrigger: function(){
                 //Triggers when an auto time extender extends the auction duration
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.status; //TRUE OR FALSE
+                Bidder.socket.data.status; //TRUE OR FALSE
             },
             auctionBidChangeLimitControl: function(){
                 //Triggers when a new offer is greater / less than previous offer depending on reverse / forward auction type. If Bid Change Limit rule is turned on.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.status; //TRUE OR FALSE
+                Bidder.socket.data.status; //TRUE OR FALSE
             },
             auctionStartControl: function(){
                 //Triggers when a bid couldn't be submitted because auction was not started.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.status; //TRUE
+                Bidder.socket.data.status; //TRUE
             },
             offerDiscountControl: function(){
                 //Triggers when discount is greater than last bid, based on each item.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.status; //TRUE OR FALSE
+                Bidder.socket.data.status; //TRUE OR FALSE
             },
             auctionNewOffer: function(){
                 //Triggers when a new bid is submitted.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
                 /*Make a new request to API and get latest offers.
                 Update Warning!
                 Future update will change the behaviour of this function.
@@ -288,46 +288,46 @@ var Bidder = {
                 */
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
             },
             offerDeleted: function(){
                 //Triggers when a bid was deleted.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
-                Employer.socket.data.task; //BIDDER ID
+                Bidder.socket.data.data; //AUCTION ID
+                Bidder.socket.data.task; //BIDDER ID
             },
             getAuctionFiles: function(){
                 //Triggers when auctionner attached a new file.
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
             },
             auctionCreateStage: function(){
                 //Triggers when auctioneer adds a new stage to the auction (ONLY SEALED BID AUCTION in ROUNDS)
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
-                Employer.socket.data.task; //STAGE ID
+                Bidder.socket.data.data; //AUCTION ID
+                Bidder.socket.data.task; //STAGE ID
             },
             auctionDeleteStage: function(){
                 //Triggers when auctioneer deletes a stage from the auction (ONLY SEALED BID AUCTION in ROUNDS)
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
-                Employer.socket.data.task; //STAGE ID
+                Bidder.socket.data.data; //AUCTION ID
+                Bidder.socket.data.task; //STAGE ID
             },
             auctionEndStage: function(){
                 //Triggers when auctioneer ends a stage (ONLY SEALED BID AUCTION in ROUNDS)
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
             },
             auctionStartStage: function(){
                 //Triggers when auctioneer starts a stage (ONLY SEALED BID AUCTION in ROUNDS)
                 console.log(Bidder.socket.data);
                 
-                Employer.socket.data.data; //AUCTION ID
+                Bidder.socket.data.data; //AUCTION ID
             } 
         }
     }
@@ -391,13 +391,6 @@ function bidderSocketInit(){
     socket.on('success', function (status){
         Bidder.socket.init({
             type: 'success',
-            status: status
-        });
-    });
-
-    socket.on('extra_time_duration', function (status){
-        Bidder.socket.init({
-            type: 'extra_time_duration',
             status: status
         });
     });
