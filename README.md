@@ -16,10 +16,13 @@ Javascript, Socket.io
 ## Installation & Usage
 
 ### Manual Installation
+Include `socket.io.js?v=1.1` for both.
 
-Download and include `commonSocket.js` for both:
-Download and include `auctioneerSocket.js` for Auctioneer:
-Download and include `bidderSocket.js` for Bidder:
+Download and include `commonSocket.js` for both.
+
+Download and include `auctioneerSocket.js` for Auctioneer.
+
+Download and include `bidderSocket.js` for Bidder.
 
 ## Tests
 
@@ -32,6 +35,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```javascript
 //Include necessary files for Bidder
+<script type="javascript" src="https://api-test.jetract.com:8443/socket.io/socket.io.js?v=1.1"></script>
 <script type="javascript" src="commonSocket.js">
 <script type="javascript" src="bidderSocket.js">
 //End of include
@@ -66,7 +70,7 @@ var offer = {
 "files": "672bfb15-782a-4172-a49e-1c8a75eb0711" //OFFER FILE (OPTIONAL)
 };
 
-socket.emit('bid', auctionID, offer);
+socket.emit('bid', auctionID, JSON.stringify(offer));
 /****
 END OF EMIT FUNCTION
 ****/

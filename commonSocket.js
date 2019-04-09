@@ -47,8 +47,6 @@ var Jetract = {
 /****
     DO NOT CHANGE THIS PART
 ****/
-<script src="https://api-test.jetract.com:8443/socket.io/socket.io.js?v=1.1"><script>
-
 var socket = null;
 var JetractNodeUrl = 'https://api-test.jetract.com:8443/';
 var userSecretKey = '';
