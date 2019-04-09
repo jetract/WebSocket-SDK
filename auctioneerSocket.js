@@ -293,7 +293,6 @@ function auctioneerSocketInit(){
         });
     });
 }
-auctioneerSocketInit();
 /****
     DO NOT CHANGE THIS PART END
 ****/
