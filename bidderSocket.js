@@ -144,6 +144,12 @@ var Bidder = {
             },
             start_stage: function(){
                 Bidder.socket.functions.auctionStartStage()
+            },
+            last_bidder_control: function(){
+                Bidder.socket.functions.bidderMultiIncrease()
+            },
+            supplier_can_bid: function(){
+                Bidder.socket.functions.biddingPermissionChanged()
             }
         },
         /****
@@ -328,7 +334,21 @@ var Bidder = {
                 console.log(Bidder.socket.data);
                 
                 Bidder.socket.data.data; //AUCTION ID
-            } 
+            },
+            bidderMultiIncrease: function(){
+                //Triggers when bidder has tried to upgrade the price twice.
+
+                console.log(Bidder.socket.data);
+            },
+            biddingPermissionChanged: function(){
+                //Triggers when bidder permission of bidding changed.
+                //location.reload(); is required!
+
+                console.log(Bidder.socket.data);
+
+                Bidder.socket.data.data; //USER ID
+                Bidder.socket.data.task; //TYPE / 1: CAN BID - 2: CANNOT BID
+            }
         }
     }
 };
@@ -413,6 +433,12 @@ function bidderSocketInit(){
         Bidder.socket.init({
             type: 'discount_control',
             status: status
+        });
+    });
+
+    socket.on('last_bidder_control', function (status){
+        Bidder.socket.init({
+            type: 'last_bidder_control'
         });
     });
 }
